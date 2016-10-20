@@ -378,17 +378,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F4B71801DB8A3B600D85F4C /* HTMLResource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HTMLResource;
-			sourceTree = "<group>";
-		};
 		BE813DCB14F893EB00EC9469 = {
 			isa = PBXGroup;
 			children = (
-				9F4B71801DB8A3B600D85F4C /* HTMLResource */,
 				BE813DDF14F893EB00EC9469 /* Source */,
 				BE813DF114F893EB00EC9469 /* Tests */,
 				BE813DD814F893EB00EC9469 /* Frameworks */,

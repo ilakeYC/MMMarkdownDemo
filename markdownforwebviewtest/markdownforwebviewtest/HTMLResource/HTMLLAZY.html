@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <style>
+                    p img {
+                        text-indent: 0;
+                    }
+                
+                img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+                </style>
+                <!--这里的两个src分别是下载下来的jquery和lazyload文件名-->
+                <script src='jquery-3.0.0.js'></script>
+                <script src='jquery.lazyload.js'></script>
+                
+                <script type='text/javascript'>
+                    jQuery(document).ready(
+                                           function(){
+                                           
+                                           /**
+                                            *  @placeholder: 占位图，放在js文件同目录下
+                                            *  @threshold: 提前加载的时间
+                                            *  @effect: 效果
+                                            */
+                                           $("img").lazyload({
+                                                             placeholder : 'htmlplaceholder.png',
+                                                             threshold : 100,
+                                                             effect: "show"
+                                                             });
+                                           
+                                           });
+                                           
+                    </script>
+                </head>
+    <body>
+        
+        <div class='text-content'>
+            <!--插入HTMLString的地方-->
+            {{Content_holder}}
+        </div>
+        
+    </body>
+</html>

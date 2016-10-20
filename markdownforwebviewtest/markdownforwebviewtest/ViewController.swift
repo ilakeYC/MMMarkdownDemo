@@ -13,18 +13,27 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
     
+    var observer : NSKeyValueObserver?
     
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad() 
         webView.scrollView.scrollEnabled = false
-        
         var frame = webView.frame
         frame.origin.x = 0
         frame.origin.y = 0
         frame.size.width = UIScreen.mainScreen().bounds.width
         webView.frame = frame
+        
+        observer = NSKeyValueObserver(webView.scrollView, for: "contentSize") {
+                [unowned self] in
+            print("end: \(self.webView.scrollView.contentSize)")
+            self.webView.sizeToFit()
+            let height = Double(self.webView.stringByEvaluatingJavaScriptFromString("document.body.scrollHeight") ?? "0") ?? 0
+            self.webView.frame.size = CGSizeMake(375, CGFloat(height))
+            self.scrollView.contentSize = CGSizeMake(375, CGFloat(height))
+        }
         
         scrollView.addSubview(webView)
     }
@@ -35,6 +44,10 @@ class ViewController: UIViewController, UIWebViewDelegate {
         print("load \(request)")
         print("start: \(webView.scrollView.contentSize)")
         return true
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        print("start")
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
@@ -50,6 +63,10 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
 
     @IBAction func leftBarButtonAction(sender: UIBarButtonItem) {
+        guard let mainPath = NSBundle.mainBundle().pathForResource("HTMLLAZY", ofType: "html") else {
+            print("没有路径")
+            return
+        }
         guard let path = NSBundle.mainBundle().pathForResource("article", ofType: "txt") else {
             print("没有路径")
             return
@@ -61,12 +78,18 @@ class ViewController: UIViewController, UIWebViewDelegate {
             return
         }
         
-        guard let html = try? MMMarkdown.HTMLStringWithMarkdown(markdownText, extensions: MMMarkdownExtensions.GitHubFlavored) else {
+        guard let bodyhtml = try? MMMarkdown.HTMLStringWithMarkdown(markdownText, extensions: MMMarkdownExtensions.GitHubFlavored) else {
             print("无法载入")
             return
         }
-        print(html)
-        webView.loadHTMLString(html, baseURL: nil)
+        
+        guard let mainHtml = try? String(contentsOfURL: NSURL(fileURLWithPath: mainPath), encoding: NSUTF8StringEncoding) else {
+            print("没有body")
+            return
+        }
+        
+        let html = mainHtml.stringByReplacingOccurrencesOfString("{{Content_holder}}", withString: bodyhtml)
+        webView.loadHTMLString(html, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
     }
 
     
