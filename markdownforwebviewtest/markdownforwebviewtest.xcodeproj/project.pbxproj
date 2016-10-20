@@ -13,6 +13,9 @@
 		9F4B71411DB86B5000D85F4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B71401DB86B5000D85F4C /* Assets.xcassets */; };
 		9F4B71441DB86B5000D85F4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B71421DB86B5000D85F4C /* LaunchScreen.storyboard */; };
 		9F4B71641DB86BFC00D85F4C /* MMMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4B715F1DB86BE800D85F4C /* MMMarkdown.framework */; };
+		9F4B716A1DB8732B00D85F4C /* MMMarkdown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4B715F1DB86BE800D85F4C /* MMMarkdown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F4B717C1DB87A3100D85F4C /* text.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B71751DB8786F00D85F4C /* text.markdown */; };
+		9F4B717D1DB87A8800D85F4C /* article.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B71771DB8794C00D85F4C /* article.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,28 @@
 			remoteGlobalIDString = BED761611B374D6700687B36;
 			remoteInfo = MMMarkdownTests;
 		};
+		9F4B716B1DB8732B00D85F4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F4B71581DB86BE700D85F4C /* MMMarkdown.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BED7620E1B37810000687B36;
+			remoteInfo = "MMMarkdown (iOS)";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9F4B716D1DB8732B00D85F4C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9F4B716A1DB8732B00D85F4C /* MMMarkdown.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9F4B71361DB86B5000D85F4C /* markdownforwebviewtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = markdownforwebviewtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +72,8 @@
 		9F4B71431DB86B5000D85F4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F4B71451DB86B5000D85F4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F4B71581DB86BE700D85F4C /* MMMarkdown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMMarkdown.xcodeproj; path = MMMarkdown/MMMarkdown.xcodeproj; sourceTree = "<group>"; };
+		9F4B71751DB8786F00D85F4C /* text.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = text.markdown; sourceTree = "<group>"; };
+		9F4B71771DB8794C00D85F4C /* article.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = article.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +108,8 @@
 		9F4B71381DB86B5000D85F4C /* markdownforwebviewtest */ = {
 			isa = PBXGroup;
 			children = (
+				9F4B71771DB8794C00D85F4C /* article.txt */,
+				9F4B71741DB8780D00D85F4C /* Resource */,
 				9F4B71391DB86B5000D85F4C /* AppDelegate.swift */,
 				9F4B713B1DB86B5000D85F4C /* ViewController.swift */,
 				9F4B713D1DB86B5000D85F4C /* Main.storyboard */,
@@ -102,6 +130,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9F4B71741DB8780D00D85F4C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9F4B71751DB8786F00D85F4C /* text.markdown */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,10 +148,12 @@
 				9F4B71321DB86B5000D85F4C /* Sources */,
 				9F4B71331DB86B5000D85F4C /* Frameworks */,
 				9F4B71341DB86B5000D85F4C /* Resources */,
+				9F4B716D1DB8732B00D85F4C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9F4B716C1DB8732B00D85F4C /* PBXTargetDependency */,
 			);
 			name = markdownforwebviewtest;
 			productName = markdownforwebviewtest;
@@ -192,6 +230,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F4B717D1DB87A8800D85F4C /* article.txt in Resources */,
+				9F4B717C1DB87A3100D85F4C /* text.markdown in Resources */,
 				9F4B71441DB86B5000D85F4C /* LaunchScreen.storyboard in Resources */,
 				9F4B71411DB86B5000D85F4C /* Assets.xcassets in Resources */,
 				9F4B713F1DB86B5000D85F4C /* Main.storyboard in Resources */,
@@ -211,6 +251,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F4B716C1DB8732B00D85F4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MMMarkdown (iOS)";
+			targetProxy = 9F4B716B1DB8732B00D85F4C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9F4B713D1DB86B5000D85F4C /* Main.storyboard */ = {
@@ -329,10 +377,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZDL6A2295D;
 				INFOPLIST_FILE = markdownforwebviewtest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Dabllo.markdownforwebviewtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -342,10 +391,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZDL6A2295D;
 				INFOPLIST_FILE = markdownforwebviewtest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Dabllo.markdownforwebviewtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -368,6 +418,7 @@
 				9F4B714A1DB86B5000D85F4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

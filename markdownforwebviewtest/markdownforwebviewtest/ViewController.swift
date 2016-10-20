@@ -9,18 +9,57 @@
 import UIKit
 import MMMarkdown
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIWebViewDelegate {
 
+    @IBOutlet weak var webView: UIWebView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+    }
+    
+    
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        print("load \(request)")
+        print(webView.scrollView.contentSize)
+        return true
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        print("finish")
+        print(webView.scrollView.contentSize)
+    }
+    
+    
+
+
+    @IBAction func leftBarButtonAction(sender: UIBarButtonItem) {
+        guard let path = NSBundle.mainBundle().pathForResource("article", ofType: "txt") else {
+            print("没有路径")
+            return
+        }
+        print(path)
+        
+        guard let markdownText = try? String(contentsOfURL: NSURL(fileURLWithPath: path), encoding: NSUTF8StringEncoding) else {
+            print("没有内容")
+            return
+        }
+        
+        guard let html = try? MMMarkdown.HTMLStringWithMarkdown(markdownText, extensions: MMMarkdownExtensions.GitHubFlavored) else {
+            print("无法载入")
+            return
+        }
+        
+        webView.loadHTMLString(html, baseURL: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func rightBarButtonAction(sender: AnyObject) {
     }
-
-
+    
 }
 

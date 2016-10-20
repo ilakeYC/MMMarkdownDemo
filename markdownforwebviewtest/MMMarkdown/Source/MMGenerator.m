@@ -111,11 +111,12 @@ static NSString * __HTMLStartTagForElement(MMElement *anElement)
     switch (anElement.type)
     {
         case MMElementTypeHeader: {
-                return [NSString stringWithFormat:@"<h%u style=\"font-family:'HelveticaNeue-Bold';font-size:%upx;color:#333333;\">", (unsigned int)anElement.level, (unsigned int)(22 - (unsigned int)anElement.level)];
+                return [NSString stringWithFormat:@"<h%u style=\"padding:15px 15px 12px 15px;font-family:'HelveticaNeue-Bold';font-size:%upx;color:#333333;\">", (unsigned int)anElement.level,(unsigned int)(22 - (unsigned int)anElement.level)];
         }
         
-        case MMElementTypeParagraph:
-            return @"<p style=\"font-family:'HelveticaNeue';font-size:15px;color:#333333;\">";
+        case MMElementTypeParagraph:{
+            return [NSString stringWithFormat:@"<p style=\"word-wrap: break-word;width:auto; padding: 0px 20px 0px 20px;font-family:'HelveticaNeue';font-size:15px;color:#333333;\">"];
+        }
         
         case MMElementTypeBulletedList:
             return @"<ul>\n";
@@ -124,13 +125,13 @@ static NSString * __HTMLStartTagForElement(MMElement *anElement)
             return @"<ol>\n";
         
         case MMElementTypeListItem:
-            return @"<li style=\"font-family:'HelveticaNeue'font-size:15px;;color:#333333;\">";
+            return @"<li style=\"font-family:'HelveticaNeue';font-size:15px;color:#333333;\">";
         
         case MMElementTypeBlockquote:
             return @"<blockquote>\n";
         
         case MMElementTypeCodeBlock:
-          return anElement.language ? [NSString stringWithFormat:@"<pre><code style=\"background-color:#F5F8FA;border-radius: 3px;color:#667785;overflow-x:scroll;padding:4px;\" class=\"%@\">", anElement.language] : @"<pre style=\"background-color:#F5F8FA;border-radius: 3px;color:#667785;overflow-x:scroll;padding:4px;\"><code>";
+          return anElement.language ? [NSString stringWithFormat:@"<pre style=\"background-color:#F5F8FA;border-radius: 3px;color:#667785;overflow-x:scroll;padding:4px;\"><code class=\"%@\">", anElement.language] : @"<pre style=\"background-color:#F5F8FA;border-radius: 3px;color:#667785;overflow-x:scroll;padding:4px;\"><code>";
         
         case MMElementTypeLineBreak:
             return @"<br />";
@@ -148,14 +149,14 @@ static NSString * __HTMLStartTagForElement(MMElement *anElement)
             return @"<em>";
         
         case MMElementTypeCodeSpan:
-            return @"<code>";
+            return @"<code style=\"display: inline-block;background-color:#F5F8FA;border-radius: 3px;color:#667785;overflow-x:scroll;padding:2px;margin:2px;\" class=\"%@\">";
         
         case MMElementTypeImage: {
 //            CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
             float imageWidth = __ScreenWidth(0) - 20;
             if (anElement.title != nil)
             {
-                return [NSString stringWithFormat:@"<div style=\"text-align:center;\><img style=\"width: %fpx;height: auto;b;\" src=\"%@\" alt=\"%@\" title=\"%@\" /></div>",
+                return [NSString stringWithFormat:@"<div style=\"text-align:center;\"><img style=\"width: %fpx;height: auto;b;\" src=\"%@\" alt=\"%@\" title=\"%@\" /></div>",
                         imageWidth,
                         __HTMLEscapedString(anElement.href),
                         __HTMLEscapedString(anElement.stringValue),
