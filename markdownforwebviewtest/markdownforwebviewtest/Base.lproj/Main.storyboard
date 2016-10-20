@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="markdownforwebviewtest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="markdownforwebviewtest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,7 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Z6-v6-igA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uTx-3l-8NQ">
+                                <frame key="frameInset" minY="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <webView autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Z6-v6-igA">
+                                <frame key="frameInset" minX="53" minY="287" width="269" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                                 <connections>
@@ -27,12 +33,6 @@
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="8Z6-v6-igA" secondAttribute="trailing" id="4Pd-04-ba0"/>
-                            <constraint firstItem="8Z6-v6-igA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Jjp-xa-gMJ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Z6-v6-igA" secondAttribute="bottom" id="qxx-6l-e1p"/>
-                            <constraint firstItem="8Z6-v6-igA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wwV-Lq-FZ8"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cOs-at-y7k">
                         <barButtonItem key="leftBarButtonItem" title="载入" id="jsh-jS-MVl">
@@ -47,18 +47,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="scrollView" destination="uTx-3l-8NQ" id="ggO-o1-Y4e"/>
                         <outlet property="webView" destination="8Z6-v6-igA" id="JU1-ra-5mm"/>
                         <segue destination="vA9-Mo-VEE" kind="show" id="vym-3O-TWD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="139"/>
+            <point key="canvasLocation" x="1132" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Image View Controller-->
         <scene sceneID="z2d-O3-H4E">
             <objects>
-                <viewController id="vA9-Mo-VEE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vA9-Mo-VEE" customClass="ImageViewController" customModule="markdownforwebviewtest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DTC-qc-tXG"/>
                         <viewControllerLayoutGuide type="bottom" id="EbU-Pi-erb"/>
@@ -77,6 +78,9 @@
                             <constraint firstItem="pLL-yO-KjK" firstAttribute="leading" secondItem="upa-DZ-YlE" secondAttribute="leading" id="wvu-6L-qsP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="pLL-yO-KjK" id="egs-C0-pBd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZx-3f-X1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

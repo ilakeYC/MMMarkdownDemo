@@ -16,6 +16,7 @@
 		9F4B716A1DB8732B00D85F4C /* MMMarkdown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4B715F1DB86BE800D85F4C /* MMMarkdown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9F4B717C1DB87A3100D85F4C /* text.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B71751DB8786F00D85F4C /* text.markdown */; };
 		9F4B717D1DB87A8800D85F4C /* article.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B71771DB8794C00D85F4C /* article.txt */; };
+		9F4B717F1DB8932900D85F4C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4B717E1DB8932900D85F4C /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		9F4B71581DB86BE700D85F4C /* MMMarkdown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMMarkdown.xcodeproj; path = MMMarkdown/MMMarkdown.xcodeproj; sourceTree = "<group>"; };
 		9F4B71751DB8786F00D85F4C /* text.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = text.markdown; sourceTree = "<group>"; };
 		9F4B71771DB8794C00D85F4C /* article.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = article.txt; sourceTree = "<group>"; };
+		9F4B717E1DB8932900D85F4C /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				9F4B71741DB8780D00D85F4C /* Resource */,
 				9F4B71391DB86B5000D85F4C /* AppDelegate.swift */,
 				9F4B713B1DB86B5000D85F4C /* ViewController.swift */,
+				9F4B717E1DB8932900D85F4C /* ImageViewController.swift */,
 				9F4B713D1DB86B5000D85F4C /* Main.storyboard */,
 				9F4B71401DB86B5000D85F4C /* Assets.xcassets */,
 				9F4B71421DB86B5000D85F4C /* LaunchScreen.storyboard */,
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F4B713C1DB86B5000D85F4C /* ViewController.swift in Sources */,
+				9F4B717F1DB8932900D85F4C /* ImageViewController.swift in Sources */,
 				9F4B713A1DB86B5000D85F4C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
